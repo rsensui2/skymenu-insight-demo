@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SkyMenu Insight App Mockup - Cute Version</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 丸文字フォント (Zen Maru Gothic) を追加 -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全体のフォントを丸文字に変更 */
+        body { font-family: 'Zen Maru Gothic', sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .bg-washi { background-color: #fcfaf2; background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); }
+        .text-sumi { color: #4a4a4a; } /* 少しグレー寄りの黒にして柔らかく */
+        .border-accent { border-color: #e6c17a; } /* 少し明るめのゴールド */
+        .bg-accent { background-color: #e6c17a; }
+        .text-accent { color: #dcb055; }
+        
+        /* Animations */
+        @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* ふわふわ浮くアニメーション */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* ポップな出現アニメーション */
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-fade-out { animation: fadeOut 1s ease-out 2.5s forwards; }
+        .animate-fade-in { opacity: 0; animation: fadeIn 1s ease-out forwards; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pop-in { animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-700 { animation-delay: 0.7s; }
+
+        /* Hide scrollbar */
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-slate-900 h-screen w-screen overflow-hidden flex justify-center items-center">
+
+    <!-- Mobile Frame -->
+    <div class="relative w-full h-full md:w-[390px] md:h-[844px] bg-washi md:rounded-[3rem] shadow-2xl overflow-hidden border-8 border-slate-800 relative">
+        
+        <!-- Splash Screen -->
+        <div id="splash" class="absolute inset-0 z-50 bg-washi flex flex-col items-center justify-center animate-fade-out pointer-events-none">
+            <div class="text-4xl font-bold mb-4 text-sumi animate-float">SkyMenu</div>
+            <div class="text-sm tracking-[0.3em] text-accent uppercase mb-8 font-bold">Insight</div>
+            <div class="w-12 h-12 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
+            <p class="mt-8 text-sm opacity-60 animate-pulse">三田の空と交信中...</p>
+        </div>
+
+        <!-- App Content -->
+        <div class="h-full flex flex-col relative">
+            
+            <!-- Header -->
+            <header class="pt-14 pb-4 px-6 flex justify-between items-center bg-white/50 backdrop-blur-sm sticky top-0 z-10">
+                <div class="text-xl font-bold text-sumi">SkyMenu</div>
+                <div class="w-10 h-10 rounded-full bg-orange-100 overflow-hidden border-2 border-white shadow-sm">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Azemi&backgroundColor=ffdfbf" alt="User">
+                </div>
+            </header>
+
+            <!-- Scrollable Area -->
+            <div class="flex-1 overflow-y-auto pb-24 px-6 space-y-8 pt-6">
+
+                <!-- Weather Status (Cute Version) -->
+                <section class="animate-fade-in delay-300">
+                    <div class="text-xs tracking-widest opacity-60 mb-2 font-bold text-center">NOW IN MITA</div>
+                    
+                    <!-- 天気表示部分をカード化して可愛く -->
+                    <div class="bg-white/80 rounded-[2rem] p-6 shadow-sm border border-orange-50 relative overflow-hidden">
+                        <div class="flex items-center justify-between relative z-10">
+                            <div>
+                                <!-- 温度をポップに強調 -->
+                                <div class="text-6xl font-bold mb-1 text-sumi animate-pop-in inline-block" style="animation-delay: 2.8s;">
+                                    12<span class="text-3xl text-accent">°C</span>
+                                </div>
+                                <div class="text-sm font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full inline-block">
+                                    ☔️ 雨 / 湿度 82%
+                                </div>
+                            </div>
+                            <!-- アイコンをふわふわさせる -->
+                            <div class="text-6xl text-blue-300 animate-float drop-shadow-sm">
+                                <i class="fa-solid fa-cloud-showers-heavy"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- 背景装飾 -->
+                        <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-50 rounded-full blur-2xl opacity-50"></div>
+                    </div>
+
+                    <div class="mt-4 p-5 bg-orange-50/80 rounded-2xl border-2 border-white shadow-sm">
+                        <div class="flex gap-3">
+                            <div class="text-2xl">🧸</div>
+                            <p class="text-sm leading-7 text-sumi font-medium">
+                                <span class="text-orange-500 font-bold">気圧が下がってるよ！</span><br>
+                                湿気が多くて体が重くなりそう。<br>
+                                温かくてお腹にやさしいごはんがおすすめ✨
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recommendation -->
+                <section class="animate-fade-in delay-500">
+                    <div class="flex justify-between items-end mb-4 px-2">
+                        <div class="text-sm font-bold opacity-60">今日のイチオシ</div>
+                        <div class="text-xs bg-red-400 text-white px-3 py-1 rounded-full font-bold shadow-sm animate-bounce">マッチ度 98%</div>
+                    </div>
+                    
+                    <div class="relative group cursor-pointer transform transition hover:scale-[1.02] active:scale-95" onclick="toggleModal(true)">
+                        <div class="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-xl border-4 border-white relative">
+                            <img src="https://images.unsplash.com/photo-1604497181034-018591407f0c?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="薬膳鍋">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-5 left-5 text-white">
+                                <h3 class="text-2xl font-bold mb-1 drop-shadow-md">生姜と根菜の白湯鍋</h3>
+                                <div class="flex items-center gap-2">
+                                    <span class="bg-white/30 backdrop-blur-sm px-2 py-0.5 rounded-lg text-xs">温活</span>
+                                    <span class="text-xs opacity-90">ぽかぽか養生レシピ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center text-accent shadow-md">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Options -->
+                <section class="animate-fade-in delay-700 pb-8">
+                    <div class="text-xs tracking-widest opacity-60 mb-4 px-2 font-bold text-center">どうする？</div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="p-4 bg-white rounded-[1.5rem] shadow-sm border-2 border-orange-50 flex flex-col items-center justify-center gap-2 hover:bg-orange-50 transition group">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-xl group-hover:scale-110 transition">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                            <span class="text-sm font-bold text-sumi">食材を頼む</span>
+                        </button>
+                        <button class="p-4 bg-white rounded-[1.5rem] shadow-sm border-2 border-orange-50 flex flex-col items-center justify-center gap-2 hover:bg-orange-50 transition group">
+                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-500 text-xl group-hover:scale-110 transition">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                            <span class="text-sm font-bold text-sumi">お店に行く</span>
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Bottom Nav -->
+            <nav class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-white px-8 py-4 flex justify-between items-center z-20">
+                <button class="flex flex-col items-center gap-1 text-accent transform scale-110">
+                    <i class="fa-solid fa-house"></i>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-slate-300 hover:text-sumi transition">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </button>
+                <button class="flex flex-col items-center gap-1 text-slate-300 hover:text-sumi transition">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Detail Modal (Cute Version) -->
+        <div id="modal" class="absolute inset-0 bg-black/40 backdrop-blur-sm z-40 translate-y-full transition-transform duration-500 cubic-bezier(0.34, 1.56, 0.64, 1) flex items-end">
+            <div class="bg-washi w-full h-[85%] rounded-t-[2.5rem] p-6 relative flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+                <div class="w-12 h-1.5 bg-slate-200 rounded-full absolute top-3 left-1/2 -translate-x-1/2"></div>
+                
+                <button onclick="toggleModal(false)" class="absolute top-6 right-6 w-10 h-10 bg-white rounded-full flex items-center justify-center text-slate-400 hover:text-red-500 shadow-sm transition z-50">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+                
+                <div class="overflow-y-auto pb-20 no-scrollbar mt-4">
+                    <img src="https://images.unsplash.com/photo-1604497181034-018591407f0c?q=80&w=2070&auto=format&fit=crop" class="w-full h-56 object-cover rounded-[2rem] mb-6 shadow-md border-4 border-white" alt="Detail">
+                    
+                    <div class="flex items-start justify-between mb-2 px-2">
+                        <h2 class="text-2xl font-bold text-sumi">生姜と根菜の白湯鍋</h2>
+                        <div class="text-orange-500 text-xl animate-pulse">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-6 font-bold px-2 bg-slate-100 inline-block rounded-lg mx-2 py-1">⏱ 20分 / 🔥 340kcal</p>
+
+                    <div class="mb-8 bg-white p-5 rounded-2xl shadow-sm border border-orange-50 mx-1">
+                        <h3 class="text-sm font-bold text-orange-500 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-robot"></i> AIのおすすめポイント
+                        </h3>
+                        <p class="text-sm leading-7 text-sumi text-justify font-medium">
+                            今の三田は湿気が高くて、ちょっと体がだるくなりやすいかも。「湿邪（しつじゃ）」っていうんだけど、生姜パワーで吹き飛ばそう！根菜でお腹も温めて、明日はスッキリ起きられるはず💪
+                        </p>
+                    </div>
+
+                    <div class="mb-8 px-2">
+                        <h3 class="text-lg font-bold mb-3 text-sumi">🛒 買うものリスト</h3>
+                        <ul class="space-y-3 text-sm font-medium">
+                            <li class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm">
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i> 生姜（古根）</span>
+                                <span class="bg-slate-100 px-2 py-1 rounded-md text-xs">2片</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm">
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i> 鶏手羽元</span>
+                                <span class="bg-slate-100 px-2 py-1 rounded-md text-xs">4本</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm">
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i> レンコン</span>
+                                <span class="bg-slate-100 px-2 py-1 rounded-md text-xs">100g</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button class="w-full bg-sumi text-white py-5 rounded-[1.5rem] font-bold text-lg shadow-lg hover:bg-slate-700 transition flex items-center justify-center gap-2 transform active:scale-95">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        まとめてカートへ
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleModal(show) {
+            const modal = document.getElementById('modal');
+            if (show) {
+                modal.classList.remove('translate-y-full');
+            } else {
+                modal.classList.add('translate-y-full');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyMenu Insight | 天気が教える、今日のあなたに最高のひと皿</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <!-- Header -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-800">SkyMenu <span class="text-blue-500">Insight</span></div>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#features" class="hover:text-blue-600 transition">特徴</a>
+                <a href="#how-it-works" class="hover:text-blue-600 transition">仕組み</a>
+                <a href="#pricing" class="hover:text-blue-600 transition">料金</a>
+            </nav>
+            <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold hover:bg-blue-700 transition">無料で始める</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-gradient pt-32 pb-20 text-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    三田の空模様が、<br>今夜の最適解を導き出す。
+                </h1>
+                <p class="text-xl mb-8 text-blue-100">
+                    気象データ×栄養学AI。多忙なエグゼクティブのための、意思決定をゼロにする献立提案。
+                </p>
+                <div class="flex space-x-4">
+                    <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-blue-50 transition">App Store</button>
+                    <button class="bg-blue-500 text-white border border-blue-400 px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-blue-400 transition">Google Play</button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-[500px] bg-slate-800 rounded-[3rem] border-8 border-slate-700 shadow-2xl overflow-hidden">
+                    <div class="bg-blue-600 p-6 text-center">
+                        <div class="text-sm opacity-80">今日の三田</div>
+                        <div class="text-3xl font-bold">12°C / ☔️</div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="bg-slate-700 h-32 rounded-xl p-4">
+                            <div class="text-xs opacity-60 mb-2">AI Suggestion</div>
+                            <div class="text-sm font-bold">生姜たっぷりの豚汁</div>
+                            <div class="text-[10px] opacity-70 mt-1">冷え込みによる代謝低下をカバーします。</div>
+                        </div>
+                        <div class="bg-slate-700 h-20 rounded-xl"></div>
+                        <div class="bg-slate-700 h-20 rounded-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-16">なぜ「天気」で献立を選ぶのか？</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="p-8 bg-white rounded-2xl shadow-xl">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">📊</div>
+                    <h3 class="text-xl font-bold mb-4">科学的な根拠</h3>
+                    <p class="text-slate-600">気圧、湿度、気温の変化が身体に与える影響をAIが解析。薬膳と栄養学に基づいた最適な食材を導き出します。</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl shadow-xl">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">⚡️</div>
+                    <h3 class="text-xl font-bold mb-4">意思決定の解放</h3>
+                    <p class="text-slate-600">「今日何食べよう？」という夕方の小さなストレスをゼロに。三田での仕事を終える頃、答えはスマホの中にあります。</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl shadow-xl">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">📍</div>
+                    <h3 class="text-xl font-bold mb-4">三田エリア特化</h3>
+                    <p class="text-slate-600">周辺の高級スーパーやレストランと連携。提案された献立の食材を、帰宅途中にワンタップで購入可能です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-slate-900 py-20 text-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8">明日のパフォーマンスは、今夜の食事から。</h2>
+            <p class="text-xl mb-12 text-slate-400">あぜみ社長も愛用する、知的生産者のためのウェルビーイング・ツール。</p>
+            <a href="#" class="bg-blue-600 text-white px-12 py-4 rounded-full font-bold text-xl hover:bg-blue-700 transition">今すぐ無料で体験する</a>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-slate-200">
+        <div class="container mx-auto px-6 text-center text-slate-500 text-sm">
+            &copy; 2026 SkyMenu Insight. Powered by IISE Thought Leadership.
+        </div>
+    </footer>
+</body>
+</html>
